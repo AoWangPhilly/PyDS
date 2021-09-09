@@ -9,3 +9,6 @@ setup(
     packages=find_packages(where="src"),
     python_requires=">=3.9.1",
 )
+
+# python setup.py bdist_wheel
+# pip install -e .

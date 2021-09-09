@@ -1,10 +1,10 @@
 from typing import Any
+from dataclasses import dataclass, field
 
-
+@dataclass
 class Stack:
-    def __init__(self) -> None:
-        self.__list = []
-    
+    __list: list = field(default_factory=list)  
+
     def push(self, value: Any) -> None:
         self.__list.append(value)
     
@@ -15,9 +15,14 @@ class Stack:
         return len(self.__list)
     
     def __str__(self) -> str:
-        return str(self.__list)
+        return f'Stack({str(self.__list)})'
 
 if __name__ == '__main__':
     s = Stack()
+    for i in range(10):
+        s.push(i)
+
+    print(s)
+
 
     
