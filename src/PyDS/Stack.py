@@ -28,15 +28,4 @@ class Stack:
     def __str__(self) -> str:
         return f'Stack({str(self.__list)})'
 
-if __name__ == '__main__':
-    s = Stack()
-    for i in range(10):
-        s.push(i)
-    
-    for i in range(10):
-        s.pop()
-
-    s.pop()
-
-
     
