@@ -1,3 +1,2 @@
 class Empty(Exception):
-    '''Error attempting to access an element from an empty container.'''
-    ...
+    """Error attempting to access an element from an empty container."""
