@@ -4,3 +4,8 @@ setup:
 
 test:
 	pytest --cov=PyDS tests
+
+coverage:
+	coverage run -m pytest
+	coverage report -m
+	coverage html
