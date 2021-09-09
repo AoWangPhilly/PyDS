@@ -70,7 +70,7 @@ def test_empty_stack_with_pop():
         s.pop()
 
 
-def test_empty_stack_with_pop():
+def test_empty_stack_with_top():
     s = Stack()
     with pytest.raises(Empty):
         s.top()
