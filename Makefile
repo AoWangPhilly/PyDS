@@ -9,3 +9,7 @@ coverage:
 	coverage run -m pytest
 	coverage report -m
 	coverage html
+
+sphinx:
+	cd docs && sphinx-apidoc -o . ../src/PyDS --ext-autodoc
+	cd docs && make html
