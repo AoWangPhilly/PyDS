@@ -96,9 +96,28 @@ class LinkedList:
         if self.is_empty():
             raise Empty("Linked List is empty")
 
-    def remove_at(self, index: int) -> None:
-        if self.is_empty():
-            raise Empty("Linked List is empty")
+        tmp = self.head
+
+        # Remove front
+        if tmp.value == target:
+            self.remove_front()
+            return
+
+        # Remove in between
+        while tmp != self.tail:
+            if tmp.value == target:
+                print("found")
+                break
+            prev = tmp
+            tmp = tmp.next
+
+        # Remove at end
+        if tmp.value == target:
+            if tmp == self.tail:
+                self.tail = prev
+            else:
+                prev.next = tmp.next
+            self.size -= 1
 
     def is_empty(self) -> bool:
         return self.size == 0
@@ -118,12 +137,3 @@ class LinkedList:
 
         output += f'{tmp.value}])'
         return output
-
-
-# if __name__ == '__main__':
-#     ll = LinkedList()
-#     arr = range(5)
-#     for i in arr:
-#         ll.prepend(i)
-#
-#     print(ll)

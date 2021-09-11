@@ -136,6 +136,11 @@ def test_len_after_multiple_removes_from_last_ll(linked_list):
     assert len(linked_list) == NUM_OF_ELEMENTS - 2
 
 
+def test_len_after_removing_element_not_in_ll(linked_list):
+    linked_list.remove(100)
+    assert len(linked_list) == NUM_OF_ELEMENTS
+
+
 def test_str_after_remove_front_of_full_ll(linked_list):
     linked_list.remove_front()
     assert str(linked_list) == 'LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])'
@@ -152,6 +157,17 @@ def test_front_remove_with_empty_ll():
     with pytest.raises(Empty):
         ll.remove_front()
 
+
+def test_remove_last_with_empty_ll():
+    ll = LinkedList()
+    with pytest.raises(Empty):
+        ll.remove_last()
+
+def test_str_remove_last_with_one_element_in_ll():
+    ll = LinkedList()
+    ll.append(11)
+    ll.remove_last()
+    assert str(ll) == 'LinkedList([])'
 
 def test_str_front_remove_with_single_ll():
     ll = LinkedList()
@@ -182,17 +198,28 @@ def test_str_remove_last_multiple_times_with_full_ll(linked_list):
     linked_list.remove_last()
     assert str(linked_list) == 'LinkedList([0, 1, 2, 3, 4, 5, 6, 7])'
 
-# def test_str_deletion_with_full_ll(linked_list):
-#     linked_list.delete(0)
-#     assert str(linked_list) == 'LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])'
-#
-#
-# def test_str_deletion_of_empty_ll():
-#     ll = LinkedList()
-#     with pytest.raises(Empty):
-#         ll.delete(0)
-#
-#
-# def test_size_after_deletion_ll(linked_list):
-#     linked_list.delete(5)
-#     assert len(linked_list) == NUM_OF_ELEMENTS - 1
+
+def test_str_deletion_with_full_ll(linked_list):
+    linked_list.remove(0)
+    assert str(linked_list) == 'LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])'
+
+
+def test_str_deletion_at_end(linked_list):
+    linked_list.remove(9)
+    assert str(linked_list) == 'LinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8])'
+
+
+def test_str_deletion_at_middle(linked_list):
+    linked_list.remove(3)
+    assert str(linked_list) == 'LinkedList([0, 1, 2, 4, 5, 6, 7, 8, 9])'
+
+
+def test_str_deletion_of_empty_ll():
+    ll = LinkedList()
+    with pytest.raises(Empty):
+        ll.remove(0)
+
+
+def test_size_after_deletion_ll(linked_list):
+    linked_list.remove(5)
+    assert len(linked_list) == NUM_OF_ELEMENTS - 1
