@@ -33,6 +33,7 @@ class LinkedList:
         node = Node(value, None)
         if self.head is None:
             self.head = node
+            self.tail = node
         else:
             node.next = self.head
             self.head = node
@@ -64,16 +65,40 @@ class LinkedList:
             i += 1
 
     def remove_front(self) -> None:
-        ...
+        if self.is_empty():
+            raise Empty("Linked List is empty")
+
+        if self.head.next is None:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+        self.size -= 1
 
     def remove_last(self) -> None:
-        ...
+        if self.is_empty():
+            raise Empty("Linked List is empty")
+
+        tmp = self.head
+
+        if tmp.next is None:
+            self.head = None
+            self.tail = None
+
+        while tmp != self.tail:
+            prev = tmp
+            tmp = tmp.next
+
+        self.tail = prev
+        self.size -= 1
 
     def remove(self, target: Any) -> None:
-        ...
+        if self.is_empty():
+            raise Empty("Linked List is empty")
 
     def remove_at(self, index: int) -> None:
-        ...
+        if self.is_empty():
+            raise Empty("Linked List is empty")
 
     def is_empty(self) -> bool:
         return self.size == 0
@@ -82,12 +107,12 @@ class LinkedList:
         return self.size
 
     def __str__(self) -> str:
-        if self.head is None:
+        if self.head is None or self.tail is None:
             return 'LinkedList([])'
 
         output = 'LinkedList(['
         tmp = self.head
-        while tmp.next:
+        while tmp != self.tail:
             output += f'{tmp.value}, '
             tmp = tmp.next
 
@@ -95,10 +120,10 @@ class LinkedList:
         return output
 
 
-if __name__ == '__main__':
-    ll = LinkedList()
-    for i in [51, 25, 23, 74, 59, 81, 83, 40, 23, 41]:
-        ll.append(i)
-
-    print(ll.search(25))
-    print(ll)
+# if __name__ == '__main__':
+#     ll = LinkedList()
+#     arr = range(5)
+#     for i in arr:
+#         ll.prepend(i)
+#
+#     print(ll)
