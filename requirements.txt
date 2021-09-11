@@ -5,22 +5,28 @@ Babel==2.9.1
 bleach==4.1.0
 certifi==2021.5.30
 charset-normalizer==2.0.4
+click==8.0.1
 colorama==0.4.4
 commonmark==0.9.1
 coverage==5.5
 docutils==0.17.1
+glob2==0.7
 idna==3.2
 imagesize==1.2.0
 importlib-metadata==4.8.1
 iniconfig==1.1.1
 Jinja2==3.0.1
+junit-xml==1.8
 keyring==23.1.0
 MarkupSafe==2.0.1
+mutmut==2.2.0
 packaging==21.0
+parso==0.8.2
 pkginfo==1.7.1
 pluggy==1.0.0
+pony==0.7.14
 py==1.10.0
--e git+https://github.com/AoWangPhilly/PyDS.git@3ad51f61670e2e463af3bf27db407bb62ad859b0#egg=PyDS
+-e git+https://github.com/AoWangPhilly/PyDS.git@e9c8e4917f3c7b89ba97fc46c8003b800f6be002#egg=PyDS
 Pygments==2.10.0
 pyparsing==2.4.7
 pytest==6.2.5
