@@ -106,7 +106,6 @@ class LinkedList:
         # Remove in between
         while tmp != self.tail:
             if tmp.value == target:
-                print("found")
                 break
             prev = tmp
             tmp = tmp.next
