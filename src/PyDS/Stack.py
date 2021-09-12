@@ -5,8 +5,12 @@ from PyDS.Error import Empty
 
 @dataclass
 class Stack:
-    """Implementation of Stack ADT"""
-    __list: list = field(default_factory=list)
+    """Implementation of Stack ADT
+
+    :param __list: A container that holds elements in stack
+    :type __list: list[Any]
+    """
+    __list: list[Any] = field(default_factory=list)
 
     def push(self, value: Any) -> None:
         """Inserts value to the top of stack
@@ -37,6 +41,11 @@ class Stack:
         return self.__list[-1]
 
     def is_empty(self) -> bool:
+        """Checks to see if stack is empty
+
+        :return: Whether or not the stack's empty
+        :rtype: bool
+        """
         return len(self.__list) == 0
 
     def __len__(self) -> int:

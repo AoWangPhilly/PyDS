@@ -5,7 +5,11 @@ from PyDS.Error import Empty
 
 @dataclass
 class Queue:
-    """Implementation of Queue ADT"""
+    """Implementation of Queue ADT
+
+    :param __list: A container that holds elements in queue
+    :type __list: list[Any]
+    """
     __list: list = field(default_factory=list)
 
     def enqueue(self, value: Any) -> None:
@@ -37,6 +41,11 @@ class Queue:
         return self.__list[0]
 
     def is_empty(self) -> bool:
+        """Checks to see if queue is empty
+
+        :return: Whether or not the queue's empty
+        :rtype: bool
+        """
         return self.__len__() == 0
 
     def __len__(self) -> int:
