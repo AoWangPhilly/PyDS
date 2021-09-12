@@ -11,6 +11,6 @@ coverage:
 	coverage html
 
 sphinx:
-	cd docs && rm ./PyDS.rst ./PyDS.LinkedList.rst ./modules.rst
-	cd docs && sphinx-apidoc -o . ../src/PyDS --ext-autodoc
-	cd docs && make html
+	cd sphinx_docs && rm ./PyDS.rst ./PyDS.LinkedList.rst ./modules.rst
+	cd sphinx_docs && sphinx-apidoc -o . ../src/PyDS --ext-autodoc
+	cd sphinx_docs && make html
