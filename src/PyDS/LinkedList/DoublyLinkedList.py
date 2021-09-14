@@ -52,17 +52,44 @@ class DoublyLinkedList:
             i += 1
         return -1
 
-    def remove_front(self):
+    def remove_front(self) -> None:
         if self.is_empty():
             raise Empty('Doubly Linked List is empty')
-        
+
+        if self.head.next is None:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            self.head.prev = None
+
+        self.size -= 1
+
     def remove_end(self):
         if self.is_empty():
             raise Empty('Doubly Linked List is empty')
 
-    def remove(self):
+        if self.head.next is None:
+            self.head = None
+            self.tail = None
+        else:
+            self.tail = self.tail.prev
+            self.tail.next = None
+
+        self.size -= 1
+
+    def remove(self, target: Any) -> None:
         if self.is_empty():
             raise Empty('Doubly Linked List is empty')
+
+        tmp = self.head
+
+        while tmp:
+            if tmp.value == target:
+                tmp.prev.next = tmp.next
+                break
+
+        self.size -= 1
 
     def is_empty(self):
         return self.size == 0
@@ -83,8 +110,10 @@ class DoublyLinkedList:
         output += f'{tmp.value}])'
         return output
 
+
 if __name__ == '__main__':
     from random import randint
+
     ll = DoublyLinkedList()
     for i in [49, 24, 95, 89, 39, 98, 44, 10, 14]:
         ll.append(i)

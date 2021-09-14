@@ -93,3 +93,29 @@ def test_search_for_element_not_in_ll(setup):
 def test_search_in_empty_ll(setup):
     empty, _ = setup
     assert empty.search(100) == -1
+
+
+def test_remove_front_with_empty_ll(setup):
+    empty, _ = setup
+    with pytest.raises(Empty):
+        empty.remove_front()
+
+
+def test_len_after_remove_front(setup):
+    _, ll = setup
+    ll.remove_front()
+    assert len(ll) == NUM_OF_ELEMENTS - 1
+
+
+def test_str_after_remove_front(setup):
+    _, ll = setup
+    ll.remove_front()
+    assert str(ll) == 'DoublyLinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])'
+
+
+def test_str_after_remove_front_of_ll_with_single_element(setup):
+    empty, _ = setup
+    empty.append(1)
+    empty.remove_front()
+    assert str(empty) == 'DoublyLinkedList([])'
+
