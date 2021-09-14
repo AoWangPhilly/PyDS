@@ -119,3 +119,86 @@ def test_str_after_remove_front_of_ll_with_single_element(setup):
     empty.remove_front()
     assert str(empty) == 'DoublyLinkedList([])'
 
+
+def test_remove_end_with_empty_ll(setup):
+    empty, _ = setup
+    with pytest.raises(Empty):
+        empty.remove_end()
+
+
+def test_str_with_remove_end_with_ll(setup):
+    _, ll = setup
+    ll.remove_end()
+    assert str(ll) == 'DoublyLinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8])'
+
+
+def test_len_with_remove_end_with_ll(setup):
+    _, ll = setup
+    ll.remove_end()
+    assert len(ll) == NUM_OF_ELEMENTS - 1
+
+
+def test_str_with_remove_end_with_ll_of_only_one_element(setup):
+    empty, _ = setup
+    empty.append(1)
+    empty.remove_end()
+    assert str(empty) == 'DoublyLinkedList([])'
+
+
+def test_remove_element_from_empty(setup):
+    empty, _ = setup
+    with pytest.raises(Empty):
+        empty.remove(0)
+
+
+def test_len_remove_element_non_existent_in_ll(setup):
+    _, ll = setup
+    ll.remove(100)
+    assert len(ll) == NUM_OF_ELEMENTS
+
+
+def test_len_remove_element_from_front_ll(setup):
+    _, ll = setup
+    ll.remove(0)
+    assert len(ll) == NUM_OF_ELEMENTS - 1
+
+
+def test_len_remove_element_from_end_ll(setup):
+    _, ll = setup
+    ll.remove(9)
+    assert len(ll) == NUM_OF_ELEMENTS - 1
+
+
+def test_len_remove_element_from_middle_ll(setup):
+    _, ll = setup
+    ll.remove(5)
+    assert len(ll) == NUM_OF_ELEMENTS - 1
+
+
+def test_str_remove_elements_from_front_ll(setup):
+    _, ll = setup
+    ll.remove(0)
+    assert str(ll) == 'DoublyLinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])'
+
+
+def test_str_remove_element_from_end_ll(setup):
+    _, ll = setup
+    ll.remove(9)
+    assert str(ll) == 'DoublyLinkedList([0, 1, 2, 3, 4, 5, 6, 7, 8])'
+
+
+def test_str_remove_element_from_middle_ll(setup):
+    _, ll = setup
+    ll.remove(5)
+    assert str(ll) == 'DoublyLinkedList([0, 1, 2, 3, 4, 6, 7, 8, 9])'
+
+
+def test_str_free_for_all(setup):
+    _, ll = setup
+    ll.remove_front()
+    ll.remove_end()
+    ll.remove(3)
+    ll.remove(6)
+    ll.prepend(99)
+    ll.append(100)
+    assert str(ll) == 'DoublyLinkedList([99, 1, 2, 4, 5, 7, 8, 100])'

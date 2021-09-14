@@ -84,12 +84,22 @@ class DoublyLinkedList:
 
         tmp = self.head
 
-        while tmp:
-            if tmp.value == target:
-                tmp.prev.next = tmp.next
-                break
+        if tmp.value == target:
+            self.remove_front()
+            return
 
-        self.size -= 1
+        while tmp != self.tail:
+            if tmp.value == target:
+                break
+            tmp = tmp.next
+
+        if tmp.value == target:
+            if tmp == self.tail:
+                self.tail = self.tail.prev
+                self.tail.next = None
+            else:
+                tmp.prev.next = tmp.next
+            self.size -= 1
 
     def is_empty(self):
         return self.size == 0
@@ -110,12 +120,3 @@ class DoublyLinkedList:
         output += f'{tmp.value}])'
         return output
 
-
-if __name__ == '__main__':
-    from random import randint
-
-    ll = DoublyLinkedList()
-    for i in [49, 24, 95, 89, 39, 98, 44, 10, 14]:
-        ll.append(i)
-
-    print(ll.search(14))
