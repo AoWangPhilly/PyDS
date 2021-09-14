@@ -50,7 +50,7 @@ class DoublyLinkedList:
                 return i
             tmp = tmp.next
             i += 1
-        return i
+        return -1
 
     def remove_front(self):
         if self.is_empty():
