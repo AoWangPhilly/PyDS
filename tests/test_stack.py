@@ -136,3 +136,21 @@ def test_eq_after_pop(stack):
 
     stack.pop()
     assert s != stack
+
+def test_capacity_limit():
+    s = Stack()
+    for i in range(64):
+        s.push(i)
+    assert s._Stack__capacity == 64
+
+def test_capacity_over_limit():
+    s = Stack()
+    for i in range(65):
+        s.push(i)
+    assert s._Stack__capacity == 64 * 2
+
+def test_len_after_resizing():
+    s = Stack()
+    for i in range(100):
+        s.push(i)
+    assert len(s) == 100
