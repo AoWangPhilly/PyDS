@@ -1,19 +1,8 @@
-from __future__ import annotations
-
 from dataclasses import dataclass
 from typing import Any, Optional
 
 from PyDS.Error import Empty
-
-
-@dataclass
-class Node:
-    """Implementation of Node containing a value
-       and pointing to the next node.
-    """
-    value: Any
-    next: Optional[Node]
-
+from PyDS.Node import Node
 
 @dataclass
 class LinkedList:

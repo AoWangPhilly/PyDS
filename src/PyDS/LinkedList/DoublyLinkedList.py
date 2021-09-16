@@ -1,25 +1,19 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from PyDS.Error import Empty
 from typing import Any, Optional
-
-
-@dataclass
-class Node:
-    value: Any
-    next: Node
-    prev: Node
+from PyDS.Node import DoublyNode
+from PyDS.Error import Empty
 
 
 @dataclass
 class DoublyLinkedList:
-    head: Optional[Node] = None
-    tail: Optional[Node] = None
+    head: Optional[DoublyNode] = None
+    tail: Optional[DoublyNode] = None
     size: int = 0
 
     def prepend(self, value: Any) -> None:
-        node = Node(value, None, None)
+        node = DoublyNode(value, None, None)
         if self.head is None:
             self.head = node
             self.tail = node
@@ -31,7 +25,7 @@ class DoublyLinkedList:
         self.size += 1
 
     def append(self, value: Any) -> None:
-        node = Node(value, None, None)
+        node = DoublyNode(value, None, None)
         if self.head is None:
             self.head = node
             self.tail = node
