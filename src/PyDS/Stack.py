@@ -74,7 +74,7 @@ class Stack:
         return self.__size
 
     def __str__(self) -> str:
-        return f'Stack({str(self.__list[:self.__size])})'
+        return f'Stack({self.__list[:self.__size]})'
 
 
 if __name__ == '__main__':
