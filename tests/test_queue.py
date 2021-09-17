@@ -78,3 +78,21 @@ def test_str_after_enqueue(queue):
 def test_str_after_dequeue(queue):
     queue.dequeue()
     assert str(queue) == 'Queue([1, 2, 3, 4, 5, 6, 7, 8, 9])'
+
+
+def test_capacity_with_size_below_cap(queue):
+    assert queue._Queue__capacity == 64
+
+
+def test_capacity_with_size_at_cap():
+    q = Queue()
+    for i in range(64):
+        q.enqueue(i)
+    assert q._Queue__capacity == 64
+
+
+def test_capacity_with_size_beyond_cap():
+    q = Queue()
+    for i in range(65):
+        q.enqueue(i)
+    assert q._Queue__capacity == 128
