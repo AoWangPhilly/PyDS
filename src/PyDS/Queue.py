@@ -86,14 +86,3 @@ class Queue:
             front = (front + 1) % self.__capacity
         output += f'{self.__list[front]}])'
         return output
-
-
-if __name__ == '__main__':
-    q = Queue()
-    for i in range(10):
-        q.enqueue(i)
-    for i in range(10):
-        q.dequeue()
-    for i in range(9):
-        q.enqueue(i)
-    print(q)

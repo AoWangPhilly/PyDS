@@ -51,7 +51,7 @@ class Stack:
         """
         if self.is_empty():
             raise Empty('Stack is empty')
-        return self.__list[self.__size-1]
+        return self.__list[self.__size - 1]
 
     def is_empty(self) -> bool:
         """Checks to see if stack is empty
@@ -75,10 +75,3 @@ class Stack:
 
     def __str__(self) -> str:
         return f'Stack({self.__list[:self.__size]})'
-
-
-if __name__ == '__main__':
-    s = Stack()
-    # for i in range(11):
-    #     s.push(i)
-    print(s)
