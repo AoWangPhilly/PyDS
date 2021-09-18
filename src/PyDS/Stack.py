@@ -26,7 +26,7 @@ class Stack:
         :type value: Any
         """
         if self.__size == self.__capacity:
-            self.__resize()
+            self.__resize(2 * self.__capacity)
         self.__list[self.__size] = value
         self.__size += 1
 
@@ -38,6 +38,10 @@ class Stack:
         """
         if self.is_empty():
             raise Empty('Stack is empty')
+
+        if 0 < self.__size < (self.__capacity // 4):
+            self.__resize(self.__capacity // 2)
+
         self.__size -= 1
         value = self.__list[self.__size]
         self.__list[self.__size] = None
@@ -61,10 +65,10 @@ class Stack:
         """
         return self.__size == 0
 
-    def __resize(self) -> None:
+    def __resize(self, capacity) -> None:
         """Resizes stack when list reaches capacity
         """
-        self.__capacity *= 2
+        self.__capacity = capacity
         list_ = self.__capacity * [None]
         for index in range(self.__size):
             list_[index] = self.__list[index]
@@ -75,3 +79,13 @@ class Stack:
 
     def __str__(self) -> str:
         return f'Stack({self.__list[:self.__size]})'
+
+if __name__ == '__main__':
+    s = Stack()
+    s.push(1)
+    s.pop()
+    s.push(1)
+    s.pop()
+    print(s._Stack__capacity)
+    print(s._Stack__size)
+    print(s._Stack__list)
