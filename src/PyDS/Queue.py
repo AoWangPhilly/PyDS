@@ -7,8 +7,16 @@ from PyDS.Error import Empty
 class Queue:
     """Implementation of Queue ADT
 
-    :param __list: A container that holds elements in queue
+    :param __capacity: The maximum number of elements a queue can hold
+    :type __capacity: int
+    :param __list: A container that holds n-elements in queue
     :type __list: list[Any]
+    :param __front: The index pointing at front of queue
+    :type __front: int
+    :param __end: The index pointing at end of queue
+    :type __end: int
+    :param __size: The size of the queue
+    :type __size: int
     """
     __capacity: int = 64
     __list: List[Any] = field(default_factory=lambda: [None] * Queue.__capacity)
@@ -62,6 +70,7 @@ class Queue:
         return self.__size == 0
 
     def __resize(self) -> None:
+        """Resize queue with twice the capacity"""
         list_ = [None] * 2 * self.__capacity
         front = self.__front
 

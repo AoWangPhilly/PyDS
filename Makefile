@@ -14,3 +14,8 @@ sphinx:
 	cd sphinx_docs && rm ./PyDS.rst ./PyDS.LinkedList.rst ./modules.rst
 	cd sphinx_docs && sphinx-apidoc -o . ../src/PyDS --ext-autodoc
 	cd sphinx_docs && make html
+
+create_docs:
+	rm -rf docs && mkdir docs
+	cp -rf sphinx_docs/_build/html docs
+	cd docs && touch .nojekyll

@@ -26,7 +26,7 @@ pkginfo==1.7.1
 pluggy==1.0.0
 pony==0.7.14
 py==1.10.0
--e git+https://github.com/AoWangPhilly/PyDS.git@e9c8e4917f3c7b89ba97fc46c8003b800f6be002#egg=PyDS
+-e git+https://github.com/AoWangPhilly/PyDS.git@d7e52b04b0d9debbe779e4dc5770ffe2574fcdc9#egg=PyDS
 Pygments==2.10.0
 pyparsing==2.4.7
 pytest==6.2.5
