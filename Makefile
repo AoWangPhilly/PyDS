@@ -19,3 +19,4 @@ create_docs:
 	rm -rf docs && mkdir docs
 	cp -rf sphinx_docs/_build/html/. docs
 	cd docs && touch .nojekyll
+
