@@ -1,5 +1,5 @@
 import pytest
-from PyDS.Queue import Queue
+from PyDS.Queue.Queue import Queue
 from PyDS.Error import Empty
 
 NUM_OF_ELEMENTS = 10
@@ -96,3 +96,16 @@ def test_capacity_with_size_beyond_cap():
     for i in range(65):
         q.enqueue(i)
     assert q._Queue__capacity == 128
+
+
+def test_capacity_with_size_after_enqueue():
+    q = Queue()
+    for i in range(10):
+        q.enqueue(i)
+
+    q.dequeue()
+    q.dequeue()
+    q.dequeue()
+    q.dequeue()
+
+    assert q._Queue__capacity == 16

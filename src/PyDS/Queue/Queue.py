@@ -13,15 +13,12 @@ class Queue:
     :type __list: list[Any]
     :param __front: The index pointing at front of queue
     :type __front: int
-    :param __end: The index pointing at end of queue
-    :type __end: int
     :param __size: The size of the queue
     :type __size: int
     """
     __capacity: int = 64
     __list: List[Any] = field(default_factory=lambda: [None] * Queue.__capacity)
     __front: int = 0
-    __end: int = 0
     __size: int = 0
 
     def enqueue(self, value: Any) -> None:
@@ -31,11 +28,10 @@ class Queue:
         :type value: Any
         """
         if self.__size == self.__capacity:
-            self.__resize()
-        self.__end %= self.__capacity
-        self.__list[self.__end] = value
+            self.__resize(capacity=2 * self.__capacity)
+        end = (self.__front + self.__size) % self.__capacity
+        self.__list[end] = value
         self.__size += 1
-        self.__end += 1
 
     def dequeue(self) -> Any:
         """Deletion at the front of the queue
@@ -45,6 +41,10 @@ class Queue:
         """
         if self.is_empty():
             raise Empty("Queue is empty")
+
+        if 0 < self.__size < (self.__capacity // 4):
+            self.__resize(capacity=self.__capacity // 2)
+
         value = self.__list[self.__front]
         self.__list[self.__front] = None
         self.__front = (self.__front + 1) % self.__capacity
@@ -69,9 +69,9 @@ class Queue:
         """
         return self.__size == 0
 
-    def __resize(self) -> None:
+    def __resize(self, capacity: int) -> None:
         """Resize queue with twice the capacity"""
-        list_ = [None] * 2 * self.__capacity
+        list_ = [None] * capacity
         front = self.__front
 
         for i in range(self.__size):
@@ -80,7 +80,7 @@ class Queue:
 
         self.__front = 0
         self.__list = list_
-        self.__capacity *= 2
+        self.__capacity = capacity
 
     def __len__(self) -> int:
         return self.__size
@@ -90,7 +90,7 @@ class Queue:
             return 'Queue([])'
         front = self.__front
         output = 'Queue(['
-        while front != self.__end - 1:
+        for _ in range(self.__size - 1):
             output += f'{self.__list[front]}, '
             front = (front + 1) % self.__capacity
         output += f'{self.__list[front]}])'
