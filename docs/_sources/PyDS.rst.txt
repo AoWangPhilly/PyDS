@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    PyDS.LinkedList
+   PyDS.Queue
 
 Submodules
 ----------
@@ -24,14 +25,6 @@ PyDS.Node module
 ----------------
 
 .. automodule:: PyDS.Node
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-PyDS.Queue module
------------------
-
-.. automodule:: PyDS.Queue
    :members:
    :undoc-members:
    :show-inheritance:

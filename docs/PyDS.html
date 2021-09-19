@@ -55,6 +55,13 @@
 <li class="toctree-l2"><a class="reference internal" href="PyDS.LinkedList.html#module-PyDS.LinkedList">Module contents</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="PyDS.Queue.html">PyDS.Queue package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PyDS.Queue.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyDS.Queue.html#module-PyDS.Queue.Deque">PyDS.Queue.Deque module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyDS.Queue.html#module-PyDS.Queue.Queue">PyDS.Queue.Queue module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PyDS.Queue.html#module-PyDS.Queue">Module contents</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>
@@ -99,80 +106,6 @@ and pointing to the next node.</p>
 <dt class="sig sig-object py" id="PyDS.Node.Node.value">
 <span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="pre">:</span> <span class="pre">Any</span></em><a class="headerlink" href="#PyDS.Node.Node.value" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-PyDS.Queue">
-<span id="pyds-queue-module"></span><h2>PyDS.Queue module<a class="headerlink" href="#module-PyDS.Queue" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="PyDS.Queue.Queue">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">PyDS.Queue.</span></span><span class="sig-name descname"><span class="pre">Queue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">_Queue__capacity:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">64</span></em>, <em class="sig-param"><span class="pre">_Queue__list:</span> <span class="pre">List[Any]</span> <span class="pre">=</span> <span class="pre">&lt;factory&gt;</span></em>, <em class="sig-param"><span class="pre">_Queue__front:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">_Queue__end:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em>, <em class="sig-param"><span class="pre">_Queue__size:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#PyDS.Queue.Queue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Implementation of Queue ADT</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>__capacity</strong> (<em>int</em>) – The maximum number of elements a queue can hold</p></li>
-<li><p><strong>__list</strong> (<em>list</em><em>[</em><em>Any</em><em>]</em>) – A container that holds n-elements in queue</p></li>
-<li><p><strong>__front</strong> (<em>int</em>) – The index pointing at front of queue</p></li>
-<li><p><strong>__end</strong> (<em>int</em>) – The index pointing at end of queue</p></li>
-<li><p><strong>__size</strong> (<em>int</em>) – The size of the queue</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="PyDS.Queue.Queue.dequeue">
-<span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#PyDS.Queue.Queue.dequeue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Deletion at the front of the queue</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A value at the front of queue</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="PyDS.Queue.Queue.enqueue">
-<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#PyDS.Queue.Queue.enqueue" title="Permalink to this definition">¶</a></dt>
-<dd><p>Insertion to the tail of the queue</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>value</strong> (<em>Any</em>) – The value inserting to the tail</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="PyDS.Queue.Queue.front">
-<span class="sig-name descname"><span class="pre">front</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="headerlink" href="#PyDS.Queue.Queue.front" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets value at front of queue</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>A value at the front of queue</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>Any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="PyDS.Queue.Queue.is_empty">
-<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#PyDS.Queue.Queue.is_empty" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks to see if queue is empty</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Whether or not the queue’s empty</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
 
 </dd></dl>
 
@@ -268,7 +201,6 @@ and pointing to the next node.</p>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-PyDS.Error">PyDS.Error module</a></li>
 <li><a class="reference internal" href="#module-PyDS.Node">PyDS.Node module</a></li>
-<li><a class="reference internal" href="#module-PyDS.Queue">PyDS.Queue module</a></li>
 <li><a class="reference internal" href="#module-PyDS.Stack">PyDS.Stack module</a></li>
 <li><a class="reference internal" href="#module-PyDS">Module contents</a></li>
 </ul>
